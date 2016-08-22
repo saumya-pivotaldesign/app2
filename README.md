@@ -15,4 +15,3 @@ SwiftyJSON (2.3.2)
  - pod init
  - pod install
  - close any current Xcode sessions and use `hztb.xcworkspace` for this project from now on.
-
