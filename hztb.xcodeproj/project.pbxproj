@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		699E250DAC63C22F94BC3B57 /* Pods_hztb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 459A06A0FE9670438B059C59 /* Pods_hztb.framework */; };
 		AE62B0731D6AD40500ACCC42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE62B0721D6AD40500ACCC42 /* AppDelegate.swift */; };
 		AE62B0751D6AD40500ACCC42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE62B0741D6AD40500ACCC42 /* ViewController.swift */; };
 		AE62B0781D6AD40500ACCC42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE62B0761D6AD40500ACCC42 /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0AC2EC75403C566DE4705B09 /* Pods-hztb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hztb.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hztb/Pods-hztb.debug.xcconfig"; sourceTree = "<group>"; };
+		459A06A0FE9670438B059C59 /* Pods_hztb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hztb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE62B06F1D6AD40500ACCC42 /* hztb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hztb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE62B0721D6AD40500ACCC42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE62B0741D6AD40500ACCC42 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		AE62B0791D6AD40500ACCC42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE62B07C1D6AD40500ACCC42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE62B07E1D6AD40500ACCC42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B73E78B6B748949E32F7EAC1 /* Pods-hztb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hztb.release.xcconfig"; path = "Pods/Target Support Files/Pods-hztb/Pods-hztb.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				699E250DAC63C22F94BC3B57 /* Pods_hztb.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		441E9F1785D86BF0920B7388 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0AC2EC75403C566DE4705B09 /* Pods-hztb.debug.xcconfig */,
+				B73E78B6B748949E32F7EAC1 /* Pods-hztb.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		558B6CE7751C2CE266F674D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				459A06A0FE9670438B059C59 /* Pods_hztb.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AE62B0661D6AD40500ACCC42 = {
 			isa = PBXGroup;
 			children = (
 				AE62B0711D6AD40500ACCC42 /* hztb */,
 				AE62B0701D6AD40500ACCC42 /* Products */,
+				441E9F1785D86BF0920B7388 /* Pods */,
+				558B6CE7751C2CE266F674D4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE62B0811D6AD40500ACCC42 /* Build configuration list for PBXNativeTarget "hztb" */;
 			buildPhases = (
+				C34EF6C0A7939D21C048CF1C /* 📦 Check Pods Manifest.lock */,
 				AE62B06B1D6AD40500ACCC42 /* Sources */,
 				AE62B06C1D6AD40500ACCC42 /* Frameworks */,
 				AE62B06D1D6AD40500ACCC42 /* Resources */,
+				5BF70308B7169AE4CFBD421D /* 📦 Embed Pods Frameworks */,
+				32863402D86769C90A92E70C /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,6 +156,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		32863402D86769C90A92E70C /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hztb/Pods-hztb-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5BF70308B7169AE4CFBD421D /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hztb/Pods-hztb-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C34EF6C0A7939D21C048CF1C /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AE62B06B1D6AD40500ACCC42 /* Sources */ = {
@@ -247,6 +322,7 @@
 		};
 		AE62B0821D6AD40500ACCC42 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AC2EC75403C566DE4705B09 /* Pods-hztb.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = hztb/Info.plist;
@@ -258,6 +334,7 @@
 		};
 		AE62B0831D6AD40500ACCC42 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B73E78B6B748949E32F7EAC1 /* Pods-hztb.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = hztb/Info.plist;
@@ -286,6 +363,7 @@
 				AE62B0831D6AD40500ACCC42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

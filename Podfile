@@ -11,7 +11,7 @@
 platform :ios, '9.0'
 use_frameworks!
 
-target 'HZTB' do
+target 'hztb' do
 
   pod 'Alamofire', '~> 3.4'
   pod 'SwiftyJSON', '~> 2.3'
