@@ -22,6 +22,7 @@ class ViewControllerOne: UIViewController {
         
         getKeyChainTest()
         //setKeyChainTest()
+        //clearKeyChain()
         
     }
 
@@ -34,6 +35,7 @@ class ViewControllerOne: UIViewController {
 }
 
 extension ViewControllerOne {
+    //MARK: - KeyChain Exploration
     private func setKeyChainTest(){
         print("setKeyChainTest   ============ ")
         keychain.set("hello world", forKey: "my key")
@@ -49,6 +51,12 @@ extension ViewControllerOne {
             print("KeyChain : value of 'my key'",a)
         }
         print("getKeyChainTest / ============ ")
+    }
+    private func clearKeyChain(){
+        print("ViewControllerOne:clearKeyChain   ============ ")
+        keychain.delete("my key") // Remove single key
+        keychain.clear()
+        print("ViewControllerOne:clearKeyChain / ============ ")
     }
 
 }
