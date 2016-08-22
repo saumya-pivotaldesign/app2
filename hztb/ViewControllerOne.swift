@@ -55,7 +55,7 @@ extension ViewControllerOne {
     private func clearKeyChain(){
         print("ViewControllerOne:clearKeyChain   ============ ")
         keychain.delete("my key") // Remove single key
-        keychain.clear()
+        keychain.clear() // Delete everything from app's Keychain. Does not work on macOS.
         print("ViewControllerOne:clearKeyChain / ============ ")
     }
 
