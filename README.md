@@ -3,12 +3,12 @@ hztb - 2
 
 Installed pods
 ```
-Installing Alamofire (3.4.0)
-Installing KeychainSwift (3.0.16)
-Installing Realm (1.0.0)
-Installing RealmSwift (1.0.0)
-Installing Simple-KeychainSwift (1.0)
-Installing SwiftyJSON (2.3.2)
+KeychainSwift (3.0.16)
+Simple-KeychainSwift (1.0)
+Alamofire (3.4.0)
+Realm (1.0.0)
+RealmSwift (1.0.0)
+SwiftyJSON (2.3.2)
 ```
 
 ### COCOAPODS
