@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		699E250DAC63C22F94BC3B57 /* Pods_hztb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 459A06A0FE9670438B059C59 /* Pods_hztb.framework */; };
+		AE3DF8911D6C6DAD00D62B83 /* countries.csv in Resources */ = {isa = PBXBuildFile; fileRef = AE3DF8901D6C6DAD00D62B83 /* countries.csv */; };
 		AE62B0731D6AD40500ACCC42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE62B0721D6AD40500ACCC42 /* AppDelegate.swift */; };
 		AE62B0751D6AD40500ACCC42 /* ViewControllerOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE62B0741D6AD40500ACCC42 /* ViewControllerOne.swift */; };
 		AE62B0781D6AD40500ACCC42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE62B0761D6AD40500ACCC42 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* Begin PBXFileReference section */
 		0AC2EC75403C566DE4705B09 /* Pods-hztb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hztb.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hztb/Pods-hztb.debug.xcconfig"; sourceTree = "<group>"; };
 		459A06A0FE9670438B059C59 /* Pods_hztb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hztb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE3DF8901D6C6DAD00D62B83 /* countries.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = countries.csv; sourceTree = "<group>"; };
 		AE62B06F1D6AD40500ACCC42 /* hztb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hztb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE62B0721D6AD40500ACCC42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE62B0741D6AD40500ACCC42 /* ViewControllerOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerOne.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 		AE62B0711D6AD40500ACCC42 /* hztb */ = {
 			isa = PBXGroup;
 			children = (
+				AE3DF8901D6C6DAD00D62B83 /* countries.csv */,
 				AE62B0721D6AD40500ACCC42 /* AppDelegate.swift */,
 				AE62B0741D6AD40500ACCC42 /* ViewControllerOne.swift */,
 				AE62B0791D6AD40500ACCC42 /* Assets.xcassets */,
@@ -123,6 +126,7 @@
 				TargetAttributes = {
 					AE62B06E1D6AD40500ACCC42 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = YKR7B3DLF3;
 					};
 				};
 			};
@@ -152,6 +156,7 @@
 				AE62B07D1D6AD40500ACCC42 /* LaunchScreen.storyboard in Resources */,
 				AE62B07A1D6AD40500ACCC42 /* Assets.xcassets in Resources */,
 				AE62B0781D6AD40500ACCC42 /* Main.storyboard in Resources */,
+				AE3DF8911D6C6DAD00D62B83 /* countries.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,7 +260,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Mayur Pawar (YKR7B3DLF3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mayur Pawar (YKR7B3DLF3)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -300,7 +306,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Mayur Pawar (YKR7B3DLF3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mayur Pawar (YKR7B3DLF3)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -325,9 +332,10 @@
 			baseConfigurationReference = 0AC2EC75403C566DE4705B09 /* Pods-hztb.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = hztb/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hztb.hztb;
+				PRODUCT_BUNDLE_IDENTIFIER = biz.pivotaldesign.hztb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -337,9 +345,10 @@
 			baseConfigurationReference = B73E78B6B748949E32F7EAC1 /* Pods-hztb.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = hztb/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hztb.hztb;
+				PRODUCT_BUNDLE_IDENTIFIER = biz.pivotaldesign.hztb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
