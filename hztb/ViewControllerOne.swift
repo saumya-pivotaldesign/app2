@@ -8,6 +8,8 @@
 
 import UIKit
 import KeychainSwift
+import SwiftCSV
+
 
 class ViewControllerOne: UIViewController {
     
@@ -23,6 +25,8 @@ class ViewControllerOne: UIViewController {
         getKeyChainTest()
         //setKeyChainTest()
         //clearKeyChain()
+        
+        loadCSV()
         
     }
 
@@ -59,5 +63,34 @@ extension ViewControllerOne {
         print("ViewControllerOne:clearKeyChain / ============ ")
     }
 
+}
+
+//MARK: - CSV test
+extension ViewControllerOne {
+    private func loadCSV(){
+        
+        print("===== loadCSV  ======")
+        
+        let tsv:CSV
+        
+        // With a custom delimiter, errors, and custom encoding
+        do {
+            //let tsv = CSV(string: "id\tname\tage\n1\tAlice\t18", delimiter: "\t")
+            
+            tsv = try CSV(name: "countries.csv")
+            
+            print("========== Rows ===============")
+            print(tsv.rows)
+            print("========== Coulumns ===============")
+            print(tsv.columns)
+            
+            //let tsv = try CSV(name: "users.tsv", delimiter: tab, encoding: NSUTF8StringEncoding)
+            
+        } catch {
+            // Error handling
+            print("===== loadCSV : Error ======")
+        }
+        print("===== loadCSV / ======")
+    }
 }
 
