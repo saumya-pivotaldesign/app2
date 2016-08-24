@@ -29,6 +29,9 @@ extension VCAppEntry {
         print("VCAppEntry:initialCheck:")
         //let pivdUtil = PIVDUtil()
         pivdUtil.initTheUtil()
-        pivdUtil.initialCheck()
+        pivdUtil.initialCheck(self)
+    }
+    internal func onDoneWithInitialCheck(){
+        print("VCAppEntry:onDoneWithInitialCheck:")
     }
 }

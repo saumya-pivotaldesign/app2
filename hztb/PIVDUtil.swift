@@ -44,7 +44,7 @@ class PIVDUtil {
     }
     
     //MARK: - initialCheck
-    internal func initialCheck(){
+    internal func initialCheck(refObj:VCAppEntry){
         print("PIVDUtil:initialCheck:")
         
         let url = "http://ec2-52-90-83-150.compute-1.amazonaws.com:8080/hztb-servicemanager/app/initialcheck"
@@ -81,6 +81,8 @@ class PIVDUtil {
                     if(jsonOBJ["needUpdate"]==false){
                         print("PIVDUtil:initialCheck: NEED UPDATE : NO")
                         print("PIVDUtil:initialCheck: TODO : write logic for the next move")
+                        self.test()
+                        refObj.onDoneWithInitialCheck()
                     }else{
                         print("PIVDUtil:initialCheck: NEED UPDATE : YES")
                     }
@@ -89,4 +91,8 @@ class PIVDUtil {
                 }
         }
     }// END initialCheck
+    
+    internal func test(){
+        print("test ============================ ")
+    }
 }
