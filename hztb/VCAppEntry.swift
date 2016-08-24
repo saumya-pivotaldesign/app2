@@ -29,10 +29,14 @@ extension VCAppEntry {
     private func getVersionNumber(){
         print("VCAppEntry:getVersionNumber:")
         //First get the nsObject by defining as an optional anyObject
-        let nsObject: AnyObject? = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"]
+        let nsObjectApp: AnyObject? = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"]
+        let nsObjectBuild: AnyObject? = NSBundle.mainBundle().infoDictionary!["CFBundleVersion"]
         //Then just cast the object as a String, but be careful, you may want to double check for nil
-        let version = nsObject as! String
+        let version = nsObjectApp as! String
+        let build = nsObjectBuild as! String
+        //
         print("version",version)
+        print("build",build)
     }
     private func initialCheck(){
         print("VCAppEntry:initialCheck:")
