@@ -22,7 +22,8 @@ target 'hztb' do
 
   pod 'Alamofire', '~> 3.4'
   pod 'SwiftyJSON', '~> 2.3'
-  pod 'RealmSwift', '~> 1.0'
+  #pod 'RealmSwift', '~> 1.0'
+  pod 'RealmSwift'
 
 end
 

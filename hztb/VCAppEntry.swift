@@ -8,6 +8,10 @@
 
 import UIKit
 
+import SwiftyJSON
+import Alamofire
+import Realm
+
 
 class VCAppEntry: UIViewController {
     override func viewDidLoad() {
