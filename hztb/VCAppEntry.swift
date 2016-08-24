@@ -14,6 +14,9 @@ import Realm
 
 
 class VCAppEntry: UIViewController {
+    
+    private let pivdUtil:PIVDUtil = PIVDUtil()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //
@@ -24,5 +27,8 @@ class VCAppEntry: UIViewController {
 extension VCAppEntry {
     private func initialCheck(){
         print("VCAppEntry:initialCheck:")
+        //let pivdUtil = PIVDUtil()
+        pivdUtil.initTheUtil()
+        pivdUtil.initialCheck()
     }
 }
