@@ -18,10 +18,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var contactStore:CNContactStore = CNContactStore()
+    var realm:Realm?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        print("AppDelegate : application:didFinishLaunchingWithOptions:   ======== ")
+        //MARK: init Realm
+        do {
+            Realm.Configuration.defaultConfiguration.deleteRealmIfMigrationNeeded = true
+            self.realm = try Realm()
+            print("AppDelegate:application:didFinishLaunchingWithOptions: realm :",self.realm)
+        }catch let error as NSError {
+            print("initRealm : ERROR :")
+            print(error)
+        }
+        // finally
         return true
     }
 
