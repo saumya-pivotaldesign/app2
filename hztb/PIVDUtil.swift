@@ -45,6 +45,8 @@ class PIVDUtil {
     
     //MARK: - initialCheck
     internal func initialCheck(){
+        print("PIVDUtil:initialCheck:")
+        
         let url = "http://ec2-52-90-83-150.compute-1.amazonaws.com:8080/hztb-servicemanager/app/initialcheck"
         let headers = [
             "Content-Type":"application/json",
@@ -58,21 +60,33 @@ class PIVDUtil {
         ]
         Alamofire.request(.POST, url,headers:headers, parameters:parameters , encoding: .JSON)
             .responseJSON { (response) in
-                print("post : request=",response.request)
-                print("post : response=",response.response)
-                print("post : data=",response.data)
-                print("post : result=",response.result)
+                print("PIVDUtil:initialCheck: post : request=",response.request)
+                print("PIVDUtil:initialCheck: post : response=",response.response)
+                print("PIVDUtil:initialCheck: post : data=",response.data)
+                print("PIVDUtil:initialCheck: post : result=",response.result)
                 // SwiftyJSON
                 //let json = JSON(data: dataFromNetworking)
                 let jsonOBJ = JSON((response.result.value)!)
                 
                 print("===========================================")
-                print("jsonOBJ=",jsonOBJ)
-                print("jsonOBJ.isError=",jsonOBJ["isError"])
-                print("jsonOBJ.needUpdate=",jsonOBJ["needUpdate"])
-                print("jsonOBJ.header.status=",jsonOBJ["header"]["status"])
-                print("jsonOBJ.header.requestId=",jsonOBJ["header"]["requestId"])
+                print("PIVDUtil:initialCheck: jsonOBJ=",jsonOBJ)
+                print("PIVDUtil:initialCheck: jsonOBJ.isError=",jsonOBJ["isError"])
+                print("PIVDUtil:initialCheck: jsonOBJ.needUpdate=",jsonOBJ["needUpdate"])
+                print("PIVDUtil:initialCheck: jsonOBJ.header.status=",jsonOBJ["header"]["status"])
+                print("PIVDUtil:initialCheck: jsonOBJ.header.requestId=",jsonOBJ["header"]["requestId"])
                 print("===========================================")
+                
+                if(jsonOBJ["isError"]==false){
+                    print("PIVDUtil:initialCheck: isError : NO")
+                    if(jsonOBJ["needUpdate"]==false){
+                        print("PIVDUtil:initialCheck: NEED UPDATE : NO")
+                        print("PIVDUtil:initialCheck: TODO : write logic for the next move")
+                    }else{
+                        print("PIVDUtil:initialCheck: NEED UPDATE : YES")
+                    }
+                }else{
+                    print("PIVDUtil:initialCheck: isError : YES")
+                }
         }
     }// END initialCheck
 }
