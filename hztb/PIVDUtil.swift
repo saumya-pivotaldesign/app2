@@ -68,10 +68,10 @@ class PIVDUtil {
                 
                 print("===========================================")
                 print("jsonOBJ=",jsonOBJ)
-                print("jsonOBJ[0]=",jsonOBJ[0])
-                print("jsonOBJ[1]=",jsonOBJ[1])
-                print("jsonOBJ['json']=",jsonOBJ["json"])
-                print("jsonOBJ[\"json\"][\"foo\"]=",jsonOBJ["json"]["foo"])
+                print("jsonOBJ.isError=",jsonOBJ["isError"])
+                print("jsonOBJ.needUpdate=",jsonOBJ["needUpdate"])
+                print("jsonOBJ.header.status=",jsonOBJ["header"]["status"])
+                print("jsonOBJ.header.requestId=",jsonOBJ["header"]["requestId"])
                 print("===========================================")
         }
     }// END initialCheck
