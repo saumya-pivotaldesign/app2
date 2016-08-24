@@ -17,6 +17,7 @@
 		AED9CE2F1D6DA1D700BAE210 /* VCAppEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED9CE2E1D6DA1D700BAE210 /* VCAppEntry.swift */; };
 		AED9CE311D6DB58700BAE210 /* PIVDUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED9CE301D6DB58700BAE210 /* PIVDUtil.swift */; };
 		AED9CE331D6DD6B600BAE210 /* AppStaticNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED9CE321D6DD6B600BAE210 /* AppStaticNames.swift */; };
+		AED9CE351D6DDBC900BAE210 /* VCRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED9CE341D6DDBC900BAE210 /* VCRegistration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		AED9CE2E1D6DA1D700BAE210 /* VCAppEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCAppEntry.swift; sourceTree = "<group>"; };
 		AED9CE301D6DB58700BAE210 /* PIVDUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PIVDUtil.swift; sourceTree = "<group>"; };
 		AED9CE321D6DD6B600BAE210 /* AppStaticNames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStaticNames.swift; sourceTree = "<group>"; };
+		AED9CE341D6DDBC900BAE210 /* VCRegistration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCRegistration.swift; sourceTree = "<group>"; };
 		B73E78B6B748949E32F7EAC1 /* Pods-hztb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hztb.release.xcconfig"; path = "Pods/Target Support Files/Pods-hztb/Pods-hztb.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +93,7 @@
 				AED9CE321D6DD6B600BAE210 /* AppStaticNames.swift */,
 				AE62B0741D6AD40500ACCC42 /* ViewControllerOne.swift */,
 				AED9CE2E1D6DA1D700BAE210 /* VCAppEntry.swift */,
+				AED9CE341D6DDBC900BAE210 /* VCRegistration.swift */,
 				AED9CE301D6DB58700BAE210 /* PIVDUtil.swift */,
 				AE62B07E1D6AD40500ACCC42 /* Info.plist */,
 				AE3DF8901D6C6DAD00D62B83 /* countries.csv */,
@@ -229,6 +232,7 @@
 				AED9CE2F1D6DA1D700BAE210 /* VCAppEntry.swift in Sources */,
 				AED9CE311D6DB58700BAE210 /* PIVDUtil.swift in Sources */,
 				AE62B0731D6AD40500ACCC42 /* AppDelegate.swift in Sources */,
+				AED9CE351D6DDBC900BAE210 /* VCRegistration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

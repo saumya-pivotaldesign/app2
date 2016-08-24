@@ -62,5 +62,17 @@ extension VCAppEntry {
     }
     internal func onGotNotificationForInitCheckDone(){
         print("VCAppEntry:onGotNotificationForInitCheckDone:")
+        
+        // Moved to Registration
+        
+        /*
+        let next = self.storyboard?.instantiateViewControllerWithIdentifier("sib_RegistrationViewController") as! VCRegistration
+        self.presentViewController(next, animated: true, completion: nil)
+        //self.showViewController(next, sender: self)
+        */
+        
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("sib_RegistrationViewController") as! VCRegistration
+        let navigationController = UINavigationController(rootViewController: vc)
+        self.presentViewController(navigationController, animated: true, completion: nil)
     }
 }
