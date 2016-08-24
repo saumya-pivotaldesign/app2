@@ -20,14 +20,23 @@ class VCAppEntry: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //
-        initialCheck()
+        getVersionNumber()
+        //initialCheck()
     }
 }
 
 extension VCAppEntry {
+    private func getVersionNumber(){
+        print("VCAppEntry:getVersionNumber:")
+        //First get the nsObject by defining as an optional anyObject
+        let nsObject: AnyObject? = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"]
+        //Then just cast the object as a String, but be careful, you may want to double check for nil
+        let version = nsObject as! String
+        print("version",version)
+    }
     private func initialCheck(){
         print("VCAppEntry:initialCheck:")
-        //let pivdUtil = PIVDUtil()
+        //
         pivdUtil.initTheUtil()
         pivdUtil.initialCheck(self)
     }
