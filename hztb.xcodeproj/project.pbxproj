@@ -14,6 +14,7 @@
 		AE62B0781D6AD40500ACCC42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE62B0761D6AD40500ACCC42 /* Main.storyboard */; };
 		AE62B07A1D6AD40500ACCC42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE62B0791D6AD40500ACCC42 /* Assets.xcassets */; };
 		AE62B07D1D6AD40500ACCC42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE62B07B1D6AD40500ACCC42 /* LaunchScreen.storyboard */; };
+		AED9CE2F1D6DA1D700BAE210 /* VCAppEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED9CE2E1D6DA1D700BAE210 /* VCAppEntry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		AE62B0791D6AD40500ACCC42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE62B07C1D6AD40500ACCC42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE62B07E1D6AD40500ACCC42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AED9CE2E1D6DA1D700BAE210 /* VCAppEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCAppEntry.swift; sourceTree = "<group>"; };
 		B73E78B6B748949E32F7EAC1 /* Pods-hztb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hztb.release.xcconfig"; path = "Pods/Target Support Files/Pods-hztb/Pods-hztb.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,13 +82,14 @@
 		AE62B0711D6AD40500ACCC42 /* hztb */ = {
 			isa = PBXGroup;
 			children = (
-				AE3DF8901D6C6DAD00D62B83 /* countries.csv */,
+				AE62B0791D6AD40500ACCC42 /* Assets.xcassets */,
 				AE62B0721D6AD40500ACCC42 /* AppDelegate.swift */,
 				AE62B0741D6AD40500ACCC42 /* ViewControllerOne.swift */,
-				AE62B0791D6AD40500ACCC42 /* Assets.xcassets */,
+				AED9CE2E1D6DA1D700BAE210 /* VCAppEntry.swift */,
+				AE62B07E1D6AD40500ACCC42 /* Info.plist */,
+				AE3DF8901D6C6DAD00D62B83 /* countries.csv */,
 				AE62B0761D6AD40500ACCC42 /* Main.storyboard */,
 				AE62B07B1D6AD40500ACCC42 /* LaunchScreen.storyboard */,
-				AE62B07E1D6AD40500ACCC42 /* Info.plist */,
 			);
 			path = hztb;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE62B0751D6AD40500ACCC42 /* ViewControllerOne.swift in Sources */,
+				AED9CE2F1D6DA1D700BAE210 /* VCAppEntry.swift in Sources */,
 				AE62B0731D6AD40500ACCC42 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
