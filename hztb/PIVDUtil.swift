@@ -44,7 +44,7 @@ class PIVDUtil {
     }
     
     //MARK: - initialCheck
-    internal func initialCheck(refObj:VCAppEntry){
+    internal func initialCheck(refObj:VCAppEntry,vCode:String,vName:String){
         print("PIVDUtil:initialCheck:")
         
         let url = "http://ec2-52-90-83-150.compute-1.amazonaws.com:8080/hztb-servicemanager/app/initialcheck"
@@ -54,10 +54,12 @@ class PIVDUtil {
             "Accept-Language":"en-US",
             "REQUEST_ID":"1"
         ]
+        // Example: "versionCode" : "1" / "versionName": "1.0"
         let parameters = [
-            "versionCode" : "1",
-            "versionName" : "1.0"
+            "versionCode" : vCode,
+            "versionName" : vName
         ]
+        print("PIVDUtil:initialCheck:parameters:",parameters)
         Alamofire.request(.POST, url,headers:headers, parameters:parameters , encoding: .JSON)
             .responseJSON { (response) in
                 print("PIVDUtil:initialCheck: post : request=",response.request)

@@ -16,6 +16,8 @@ import Realm
 class VCAppEntry: UIViewController {
     
     private let pivdUtil:PIVDUtil = PIVDUtil()
+    private var appVersion:String = "-1"
+    private var buildNum:String = "-1"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,12 +39,17 @@ extension VCAppEntry {
         //
         print("version",version)
         print("build",build)
+        
+        self.appVersion = version
+        self.buildNum = build
+        
+        initialCheck()
     }
     private func initialCheck(){
         print("VCAppEntry:initialCheck:")
         //
         pivdUtil.initTheUtil()
-        pivdUtil.initialCheck(self)
+        pivdUtil.initialCheck(self,vCode: self.buildNum,vName: self.appVersion)
     }
     internal func onDoneWithInitialCheck(){
         print("VCAppEntry:onDoneWithInitialCheck:")
