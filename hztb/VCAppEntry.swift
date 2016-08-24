@@ -22,6 +22,10 @@ class VCAppEntry: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(onGotNotificationForInitCheckDone),
+                                                         name: AppStaticNames.INIT_CHECK_DONE,
+                                                         object: nil)
+        //
         getVersionNumber()
         //initialCheck()
     }
@@ -53,5 +57,10 @@ extension VCAppEntry {
     }
     internal func onDoneWithInitialCheck(){
         print("VCAppEntry:onDoneWithInitialCheck:")
+        let notification = NSNotification(name: AppStaticNames.INIT_CHECK_DONE, object:self, userInfo: nil)
+        NSNotificationCenter.defaultCenter().postNotification(notification)
+    }
+    internal func onGotNotificationForInitCheckDone(){
+        print("VCAppEntry:onGotNotificationForInitCheckDone:")
     }
 }

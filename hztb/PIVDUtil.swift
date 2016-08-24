@@ -82,9 +82,14 @@ class PIVDUtil {
                     print("PIVDUtil:initialCheck: isError : NO")
                     if(jsonOBJ["needUpdate"]==false){
                         print("PIVDUtil:initialCheck: NEED UPDATE : NO")
-                        print("PIVDUtil:initialCheck: TODO : write logic for the next move")
-                        self.test()
-                        refObj.onDoneWithInitialCheck()
+                        //print("PIVDUtil:initialCheck: TODO : write logic for the next move")
+                        
+                        //self.test()
+                        //refObj.onDoneWithInitialCheck()
+                        
+                        let notification = NSNotification(name: AppStaticNames.INIT_CHECK_DONE, object:self, userInfo: nil)
+                        NSNotificationCenter.defaultCenter().postNotification(notification)
+                        
                     }else{
                         print("PIVDUtil:initialCheck: NEED UPDATE : YES")
                     }
