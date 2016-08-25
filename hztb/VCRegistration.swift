@@ -17,10 +17,13 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
     @IBOutlet var uPhone:UITextField!
     @IBOutlet var uCountryCode:UIPickerView!
     
-    let pickerData = ["United States","India","United Kingdom"]
+    var pickerData = ["United States","India","United Kingdom"]
     private var sCountryCode:String = "01"
     private var registrationResult:String = ""
-    public var sRegisteredNum:String = ""
+    internal var sRegisteredNum:String = ""
+    
+    internal var jCountries:JSON!
+    
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -46,17 +49,28 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
         super.viewDidAppear(animated)
         print("VCRegistration : viewDidAppear : ")
         //PIVDUtilContact.getContacts(self)
-        
+        /*
         if let path : String = NSBundle.mainBundle().pathForResource("countries", ofType: "json") {
             if let data = NSData(contentsOfFile: path) {
-                let jCountries = JSON(data: data)
+                self.jCountries = JSON(data: data)
+                
+                //let jCountries = JSON(data: data)
                 //print("json countries",jCountries)
                 //print(jCountries.rawValue)
-                print(jCountries.count)
-                print(jCountries[0]["country"])
+                print(self.jCountries.count)
+                print(self.jCountries[0]["country"])
+                
+                self.pickerData.removeAll()
+                print("===========================")
+                for country in self.jCountries {
+                    print(country.1["code"],country.1["country"])
+                    let a:String = country.1["country"].string!
+                    self.pickerData.append(a)
+                }
+                print("===========================")
             }
         }
-        
+        */
     }
     
     internal func showAlertMessage(message:String, _ title:String="Note"){
