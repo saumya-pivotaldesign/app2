@@ -45,7 +45,17 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         print("VCRegistration : viewDidAppear : ")
-        PIVDUtilContact.getContacts(self)
+        //PIVDUtilContact.getContacts(self)
+        
+        if let path : String = NSBundle.mainBundle().pathForResource("countries", ofType: "json") {
+            if let data = NSData(contentsOfFile: path) {
+                let jCountries = JSON(data: data)
+                //print("json countries",jCountries)
+                //print(jCountries.rawValue)
+                print(jCountries.count)
+                print(jCountries[0]["country"])
+            }
+        }
         
     }
     
