@@ -77,10 +77,12 @@ extension AppDelegate{
         
         alertController.addAction(dismissAction)
         
-        let pushedViewControllers = (self.window?.rootViewController as! UINavigationController).viewControllers
-        let presentedViewController = pushedViewControllers[pushedViewControllers.count - 1]
+        //let pushedViewControllers = (self.window?.rootViewController as! UINavigationController).viewControllers
+        //let presentedViewController = pushedViewControllers[pushedViewControllers.count - 1]
         
-        presentedViewController.presentViewController(alertController, animated: true, completion: nil)
+        let presentedViewController = self.window?.rootViewController
+        
+        presentedViewController!.presentViewController(alertController, animated: true, completion: nil)
     }
     // MARK: Contacts Request Access
     func requestForAccess(completionHandler: (accessGranted: Bool) -> Void) {

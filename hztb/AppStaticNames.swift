@@ -11,5 +11,6 @@ import Foundation
 struct AppStaticNames {
     // MARK: Events
     internal static let INIT_CHECK_DONE:String = "initCheckDone"
+    internal static let CONTACT_FETCH_SUCCESS:String = "contactFetchSuccess"
     
 }

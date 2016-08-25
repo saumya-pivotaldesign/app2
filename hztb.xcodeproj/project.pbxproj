@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		699E250DAC63C22F94BC3B57 /* Pods_hztb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 459A06A0FE9670438B059C59 /* Pods_hztb.framework */; };
+		AE1C75C91D6F1758000EED8D /* PIVDUtilContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1C75C81D6F1758000EED8D /* PIVDUtilContact.swift */; };
 		AE3DF8911D6C6DAD00D62B83 /* countries.csv in Resources */ = {isa = PBXBuildFile; fileRef = AE3DF8901D6C6DAD00D62B83 /* countries.csv */; };
 		AE62B0731D6AD40500ACCC42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE62B0721D6AD40500ACCC42 /* AppDelegate.swift */; };
 		AE62B0751D6AD40500ACCC42 /* ViewControllerOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE62B0741D6AD40500ACCC42 /* ViewControllerOne.swift */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		0AC2EC75403C566DE4705B09 /* Pods-hztb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hztb.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hztb/Pods-hztb.debug.xcconfig"; sourceTree = "<group>"; };
 		459A06A0FE9670438B059C59 /* Pods_hztb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hztb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE1C75C81D6F1758000EED8D /* PIVDUtilContact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PIVDUtilContact.swift; sourceTree = "<group>"; };
 		AE3DF8901D6C6DAD00D62B83 /* countries.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = countries.csv; sourceTree = "<group>"; };
 		AE62B06F1D6AD40500ACCC42 /* hztb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hztb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE62B0721D6AD40500ACCC42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				AED9CE2E1D6DA1D700BAE210 /* VCAppEntry.swift */,
 				AED9CE341D6DDBC900BAE210 /* VCRegistration.swift */,
 				AED9CE301D6DB58700BAE210 /* PIVDUtil.swift */,
+				AE1C75C81D6F1758000EED8D /* PIVDUtilContact.swift */,
 				AE62B07E1D6AD40500ACCC42 /* Info.plist */,
 				AE3DF8901D6C6DAD00D62B83 /* countries.csv */,
 				AE62B0761D6AD40500ACCC42 /* Main.storyboard */,
@@ -229,6 +232,7 @@
 			files = (
 				AED9CE331D6DD6B600BAE210 /* AppStaticNames.swift in Sources */,
 				AE62B0751D6AD40500ACCC42 /* ViewControllerOne.swift in Sources */,
+				AE1C75C91D6F1758000EED8D /* PIVDUtilContact.swift in Sources */,
 				AED9CE2F1D6DA1D700BAE210 /* VCAppEntry.swift in Sources */,
 				AED9CE311D6DB58700BAE210 /* PIVDUtil.swift in Sources */,
 				AE62B0731D6AD40500ACCC42 /* AppDelegate.swift in Sources */,
