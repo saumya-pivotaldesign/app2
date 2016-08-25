@@ -11,16 +11,21 @@ import UIKit
 import SwiftyJSON
 
 
-class VCCountrySelection: UIViewController {
+class VCCountrySelection: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     internal var jCountries:JSON!
     //internal var pickerData:Array<String>!
-    var pickerData: [String] = ["Item 1","Item 2","Item 3", "Item 4", "Item 5"]
+    var pickerData: [JSON] = []
+    
+    @IBOutlet var tableViewCountries:UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("viewDidLoad")
+        
+        tableViewCountries.delegate=self
+        tableViewCountries.dataSource=self
     }
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -41,15 +46,42 @@ class VCCountrySelection: UIViewController {
                 print("===========================")
                 for country in self.jCountries {
                     //print(country.1["code"],country.1["country"])
-                    let a:String = country.1["country"].string!
-                    self.pickerData.append(a)
+                    //let a:String = country.1["country"].string!
+                    //self.pickerData.append(a)
+                    self.pickerData.append(country.1)
                 }
                 print(pickerData)
                 print("===========================")
                 
-                
+                self.tableViewCountries.reloadData()
             }
         }
         // ==========================================
+    }
+}
+
+extension VCCountrySelection {
+    //MARK: TableView delegates
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("VCCountrySelection : tableView:numberOfRowsInSection: self.pickerData.count",self.pickerData.count)
+        return self.pickerData.count;
+    }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        print("VCCountrySelection : tableView:cellForRowAtIndexPath: indexPath.row",indexPath.row)
+        let cell:UITableViewCell = (self.tableViewCountries.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell)
+        
+        let a = self.pickerData[indexPath.row]["country"].string
+        //let b = self.pickerData[indexPath.row]["code"]
+        
+        cell.textLabel?.text = a
+        return cell
+    }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("VCCountrySelection : tableView:didSelectRowAtIndexPath: ")
+        print("You have selected cell #\(indexPath.row)!")
+        let a = self.pickerData[indexPath.row]["country"].string
+        let b = self.pickerData[indexPath.row]["code"].number
+        
+        print(a,b)
     }
 }
