@@ -72,12 +72,57 @@ class PIVDUtil {
                 
                 print("===========================================")
                 print("PIVDUtil:initialCheck: jsonOBJ=",jsonOBJ)
+                print("PIVDUtil:initialCheck: jsonOBJ.status=",jsonOBJ["status"])
                 print("PIVDUtil:initialCheck: jsonOBJ.isError=",jsonOBJ["isError"])
                 print("PIVDUtil:initialCheck: jsonOBJ.needUpdate=",jsonOBJ["needUpdate"])
                 print("PIVDUtil:initialCheck: jsonOBJ.header.status=",jsonOBJ["header"]["status"])
                 print("PIVDUtil:initialCheck: jsonOBJ.header.requestId=",jsonOBJ["header"]["requestId"])
                 print("===========================================")
                 
+                let successStatus = jsonOBJ["header"]["status"].numberValue
+                let resultStatus = jsonOBJ["status"].numberValue
+                
+                print("successStatus",successStatus)
+                print("resultStatus",resultStatus)
+                
+                if(resultStatus == 0){
+                    
+                    if(successStatus==200){
+                        print("Status:200: ==================== ")
+                        
+                        if(jsonOBJ["isError"]==false){
+                            print("PIVDUtil:initialCheck: isError : NO")
+                            if(jsonOBJ["needUpdate"]==false){
+                                print("PIVDUtil:initialCheck: NEED UPDATE : NO")
+                                //print("PIVDUtil:initialCheck: TODO : write logic for the next move")
+                                
+                                //self.test()
+                                //refObj.onDoneWithInitialCheck()
+                                
+                                let notification = NSNotification(name: AppStaticNames.INIT_CHECK_DONE, object:self, userInfo: nil)
+                                NSNotificationCenter.defaultCenter().postNotification(notification)
+                                
+                            }else{
+                                print("PIVDUtil:initialCheck: NEED UPDATE : YES")
+                            }
+                        }else{
+                            print("PIVDUtil:initialCheck: isError : YES")
+                        }
+                        
+                    }else if(successStatus==400){
+                        print("Status:400: BAD ==================== ")
+                    }else if(successStatus==500){
+                        print("Status:500: ERROR ==================== ")
+                    }
+                    
+                }else{
+                    // FATAL ERROR
+                    //AppDelegate.getAppDelegate().showMessage("FATAL ERROR")
+                    print("Status: ERROR : FATAL ==================== ", resultStatus)
+                }
+                
+                
+                /*
                 if(jsonOBJ["isError"]==false){
                     print("PIVDUtil:initialCheck: isError : NO")
                     if(jsonOBJ["needUpdate"]==false){
@@ -95,7 +140,8 @@ class PIVDUtil {
                     }
                 }else{
                     print("PIVDUtil:initialCheck: isError : YES")
-                }
+                }*/
+                
         }
     }// END initialCheck
     
