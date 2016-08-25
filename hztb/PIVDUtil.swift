@@ -94,32 +94,36 @@ class PIVDUtil {
                             print("PIVDUtil:initialCheck: isError : NO")
                             if(jsonOBJ["needUpdate"]==false){
                                 print("PIVDUtil:initialCheck: NEED UPDATE : NO")
-                                //print("PIVDUtil:initialCheck: TODO : write logic for the next move")
-                                
-                                //self.test()
                                 //refObj.onDoneWithInitialCheck()
                                 
+                                // everything is alright, move on
                                 let notification = NSNotification(name: AppStaticNames.INIT_CHECK_DONE, object:self, userInfo: nil)
                                 NSNotificationCenter.defaultCenter().postNotification(notification)
                                 
                             }else{
                                 print("PIVDUtil:initialCheck: NEED UPDATE : YES")
+                                refObj.onDoneWithInitialCheck("Need Update")
                             }
                         }else{
                             print("PIVDUtil:initialCheck: isError : YES")
+                            refObj.onDoneWithInitialCheck("error")
                         }
                         
                     }else if(successStatus==400){
                         print("Status:400: BAD ==================== ")
+                        refObj.onDoneWithInitialCheck("bad request")
                     }else if(successStatus==500){
                         print("Status:500: ERROR ==================== ")
+                        refObj.onDoneWithInitialCheck("request is unable to process at this time")
                     }
                     
                 }else{
                     // FATAL ERROR
                     //AppDelegate.getAppDelegate().showMessage("FATAL ERROR")
                     print("Status: ERROR : FATAL ==================== ", resultStatus)
+                    refObj.onDoneWithInitialCheck("request is unable to process at this time")
                 }
+                
                 
                 
                 /*

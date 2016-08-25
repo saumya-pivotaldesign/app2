@@ -21,13 +21,20 @@ class VCAppEntry: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //
+        print("VCAppEntry:viewDidLoad:")
+        // Add the event handlers
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(onGotNotificationForInitCheckDone),
                                                          name: AppStaticNames.INIT_CHECK_DONE,
                                                          object: nil)
-        //
+        // initialise the utility
+        pivdUtil.initTheUtil()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        print("VCAppEntry:viewDidAppear:")
+        
         getVersionNumber()
-        //initialCheck()
     }
 }
 
@@ -51,14 +58,11 @@ extension VCAppEntry {
     }
     private func initialCheck(){
         print("VCAppEntry:initialCheck:")
-        //
-        pivdUtil.initTheUtil()
         pivdUtil.initialCheck(self,vCode: self.buildNum,vName: self.appVersion)
     }
-    internal func onDoneWithInitialCheck(){
+    internal func onDoneWithInitialCheck(message:String){
         print("VCAppEntry:onDoneWithInitialCheck:")
-        let notification = NSNotification(name: AppStaticNames.INIT_CHECK_DONE, object:self, userInfo: nil)
-        NSNotificationCenter.defaultCenter().postNotification(notification)
+        showAlertMessage(message)
     }
     internal func onGotNotificationForInitCheckDone(){
         print("VCAppEntry:onGotNotificationForInitCheckDone:")
@@ -74,5 +78,13 @@ extension VCAppEntry {
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("sib_RegistrationViewController") as! VCRegistration
         let navigationController = UINavigationController(rootViewController: vc)
         self.presentViewController(navigationController, animated: true, completion: nil)
+    }
+    internal func showAlertMessage(message:String, _ title:String="Note"){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let dismissAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (action) -> Void in
+            //
+        }
+        alertController.addAction(dismissAction)
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
 }
