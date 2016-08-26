@@ -52,38 +52,15 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         print("VCRegistration : viewDidAppear : ")
+        
         //PIVDUtilContact.getContacts(self)
-        /*
-        if let path : String = NSBundle.mainBundle().pathForResource("countries", ofType: "json") {
-            if let data = NSData(contentsOfFile: path) {
-                self.jCountries = JSON(data: data)
-                
-                //let jCountries = JSON(data: data)
-                //print("json countries",jCountries)
-                //print(jCountries.rawValue)
-                print(self.jCountries.count)
-                print(self.jCountries[0]["country"])
-                
-                self.pickerData.removeAll()
-                print("===========================")
-                for country in self.jCountries {
-                    print(country.1["code"],country.1["country"])
-                    let a:String = country.1["country"].string!
-                    self.pickerData.append(a)
-                }
-                print("===========================")
-            }
-        }
-        */
-        //
+        
+        // If User has selected a Country, set the value here
         if(AppDelegate.getAppDelegate().sCountryName==""){
             //
         }else{
-            //btnCountry.titleLabel?.text = AppDelegate.getAppDelegate().sCountryName
-            
             btnCountry.setTitle(AppDelegate.getAppDelegate().sCountryName, forState: UIControlState.Normal)
             lblCountryCode.text = "+ " + AppDelegate.getAppDelegate().nCountryCode.stringValue
-            
         }
     }
     
