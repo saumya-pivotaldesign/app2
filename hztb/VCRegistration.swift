@@ -85,7 +85,7 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
         // http://ec2-52-90-83-150.compute-1.amazonaws.com:8080/hztb-servicemanager/app/initialcheck
         //let url = "http://hztb-dev.us-east-1.elasticbeanstalk.com/user/register" // old
         
-        let url = "http://ec2-52-90-83-150.compute-1.amazonaws.com:8080/hztb-servicemanager/app/register"
+        let url = "http://ec2-52-90-83-150.compute-1.amazonaws.com:8080/hztb-servicemanager/user/register"
         let headers = [
             "Content-Type":"application/json",
             "Accept":"application/json",
@@ -111,12 +111,12 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
                 let jsonOBJ = JSON((response.result.value)!)
                 
                 print("===========================================")
-                print("PIVDUtil:initialCheck: jsonOBJ=",jsonOBJ)
-                print("PIVDUtil:initialCheck: jsonOBJ.status=",jsonOBJ["status"])
-                print("PIVDUtil:initialCheck: jsonOBJ.isError=",jsonOBJ["isError"])
-                print("PIVDUtil:initialCheck: jsonOBJ.needUpdate=",jsonOBJ["needUpdate"])
-                print("PIVDUtil:initialCheck: jsonOBJ.header.status=",jsonOBJ["header"]["status"])
-                print("PIVDUtil:initialCheck: jsonOBJ.header.requestId=",jsonOBJ["header"]["requestId"])
+                print("VCRegistration:callServerForRegistration:post: jsonOBJ=",jsonOBJ)
+                print("VCRegistration:callServerForRegistration:post: jsonOBJ.status=",jsonOBJ["status"])
+                print("VCRegistration:callServerForRegistration:post: jsonOBJ.isError=",jsonOBJ["isError"])
+                print("VCRegistration:callServerForRegistration:post: jsonOBJ.needUpdate=",jsonOBJ["needUpdate"])
+                print("VCRegistration:callServerForRegistration:post: jsonOBJ.header.status=",jsonOBJ["header"]["status"])
+                print("VCRegistration:callServerForRegistration:post: jsonOBJ.header.requestId=",jsonOBJ["header"]["requestId"])
                 print("===========================================")
                 
                 // HTTP Status Code
@@ -126,9 +126,11 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
                 if(sCode==200){
                     self.showAlertMessage("Done","Success")
                 }else if(sCode==400){
-                    self.showAlertMessage("bad request","Error")
+                    let msg:String = jsonOBJ["header"]["errors"][0]["message"].string!
+                    //self.showAlertMessage("bad request","Error")
+                    self.showAlertMessage(msg,"Error Information")
                 }else{
-                    self.showAlertMessage("request is unable to process at this time","Info")
+                    self.showAlertMessage("request is unable to process at this time","Error")
                 }
  
         }
