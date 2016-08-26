@@ -93,7 +93,8 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
             "REQUEST_ID":"1"
         ]
         let parameters = [
-            "mobileNumber":sPhone
+            "mobileNumber":sPhone,
+            "uniqueId":"1111111111111111"
         ]
         Alamofire.request(.POST, url,headers:headers, parameters:parameters , encoding: .JSON)
             .responseJSON { (response) in
@@ -106,8 +107,16 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
                  
                  if let json1 = response.result.value {
                     print("VCRegistration:callServerForRegistration:json1: \(json1)")
-                 }
+                    
+                    
+                 }else{
+                    print("VCRegistration:callServerForRegistration:json1: FAIL :")
+                    print(response)
+                    self.showAlertMessage("TODO: Message","Fail")
+                }
                 
+                //TODO: Once the query is cleared, uncomment these
+                /*
                 let jsonOBJ = JSON((response.result.value)!)
                 
                 print("===========================================")
@@ -131,7 +140,7 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
                     self.showAlertMessage(msg,"Error Information")
                 }else{
                     self.showAlertMessage("request is unable to process at this time","Error")
-                }
+                }*/
  
         }
     }
