@@ -19,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var contactStore:CNContactStore = CNContactStore()
     var realm:Realm?
+    
+    var sCountryName:String=""
+    var nCountryCode:NSNumber=0
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {

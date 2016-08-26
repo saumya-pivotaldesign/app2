@@ -47,15 +47,31 @@
                                     <segue destination="6ZA-LH-rX2" kind="show" id="PMj-Wx-ehE"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aR-fC-5Hh">
+                                <rect key="frame" x="20" y="110" width="100" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="KgQ-Um-6xL"/>
+                                    <constraint firstAttribute="width" constant="100" id="XHv-JH-3Jd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="gil-ff-y3a" firstAttribute="top" secondItem="NnC-mA-Qlz" secondAttribute="bottom" constant="8" id="8B5-Lz-8qr"/>
+                            <constraint firstItem="8aR-fC-5Hh" firstAttribute="top" secondItem="gil-ff-y3a" secondAttribute="bottom" constant="8" id="9jY-yr-RfW"/>
+                            <constraint firstItem="8aR-fC-5Hh" firstAttribute="leading" secondItem="AIJ-A1-OGN" secondAttribute="leadingMargin" id="Co1-pc-v1m"/>
                             <constraint firstItem="gil-ff-y3a" firstAttribute="leading" secondItem="AIJ-A1-OGN" secondAttribute="leadingMargin" id="d9I-SO-SSK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gil-ff-y3a" secondAttribute="trailing" id="wut-NR-umA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Registration" id="Yda-Qv-NgP"/>
+                    <connections>
+                        <outlet property="btnCountry" destination="gil-ff-y3a" id="Meg-XX-6pt"/>
+                        <outlet property="lblCountryCode" destination="8aR-fC-5Hh" id="1Eu-tf-zNJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ihe-Zi-S5S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

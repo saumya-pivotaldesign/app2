@@ -17,6 +17,9 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
     @IBOutlet var uPhone:UITextField!
     @IBOutlet var uCountryCode:UIPickerView!
     
+    @IBOutlet var btnCountry:UIButton!
+    @IBOutlet var lblCountryCode:UILabel!
+    
     var pickerData = ["United States","India","United Kingdom"]
     private var sCountryCode:String = "01"
     private var registrationResult:String = ""
@@ -44,6 +47,7 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
                                                           name: CNContactStoreDidChangeNotification, object: nil)
         //
         //PIVDUtilContact.getContacts()
+        
     }
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -71,6 +75,16 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
             }
         }
         */
+        //
+        if(AppDelegate.getAppDelegate().sCountryName==""){
+            //
+        }else{
+            //btnCountry.titleLabel?.text = AppDelegate.getAppDelegate().sCountryName
+            
+            btnCountry.setTitle(AppDelegate.getAppDelegate().sCountryName, forState: UIControlState.Normal)
+            lblCountryCode.text = "+ " + AppDelegate.getAppDelegate().nCountryCode.stringValue
+            
+        }
     }
     
     internal func showAlertMessage(message:String, _ title:String="Note"){

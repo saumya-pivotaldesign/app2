@@ -83,5 +83,10 @@ extension VCCountrySelection {
         let b = self.pickerData[indexPath.row]["code"].number
         
         print(a,b)
+        
+        AppDelegate.getAppDelegate().sCountryName = a!
+        AppDelegate.getAppDelegate().nCountryCode = b!
+        
+        self.navigationController?.popViewControllerAnimated(true)
     }
 }
