@@ -57,20 +57,38 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="111111111" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yNp-o7-FOr">
+                                <rect key="frame" x="128" y="108" width="444" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="qMi-C8-2z6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="yNp-o7-FOr" firstAttribute="leading" secondItem="8aR-fC-5Hh" secondAttribute="trailing" constant="8" id="2hZ-tn-JNJ"/>
                             <constraint firstItem="gil-ff-y3a" firstAttribute="top" secondItem="NnC-mA-Qlz" secondAttribute="bottom" constant="8" id="8B5-Lz-8qr"/>
                             <constraint firstItem="8aR-fC-5Hh" firstAttribute="top" secondItem="gil-ff-y3a" secondAttribute="bottom" constant="8" id="9jY-yr-RfW"/>
                             <constraint firstItem="8aR-fC-5Hh" firstAttribute="leading" secondItem="AIJ-A1-OGN" secondAttribute="leadingMargin" id="Co1-pc-v1m"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yNp-o7-FOr" secondAttribute="trailing" constant="8" id="Tpm-EZ-XUh"/>
                             <constraint firstItem="gil-ff-y3a" firstAttribute="leading" secondItem="AIJ-A1-OGN" secondAttribute="leadingMargin" id="d9I-SO-SSK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gil-ff-y3a" secondAttribute="trailing" id="wut-NR-umA"/>
+                            <constraint firstItem="yNp-o7-FOr" firstAttribute="top" secondItem="gil-ff-y3a" secondAttribute="bottom" constant="6" id="xDu-E1-Ejf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Registration" id="Yda-Qv-NgP"/>
+                    <navigationItem key="navigationItem" title="Registration" id="Yda-Qv-NgP">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="1BX-Fg-Y8b">
+                            <connections>
+                                <action selector="onDone:" destination="rxk-hW-F2R" id="tU2-cT-d8P"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="btnCountry" destination="gil-ff-y3a" id="Meg-XX-6pt"/>
                         <outlet property="lblCountryCode" destination="8aR-fC-5Hh" id="1Eu-tf-zNJ"/>
+                        <outlet property="uPhone" destination="yNp-o7-FOr" id="6Ys-Gv-YwT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ihe-Zi-S5S" userLabel="First Responder" sceneMemberID="firstResponder"/>

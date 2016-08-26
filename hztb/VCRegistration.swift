@@ -14,11 +14,13 @@ import SwiftyJSON
 class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDelegate {
     
     @IBOutlet var bg:UIImageView?
-    @IBOutlet var uPhone:UITextField!
-    @IBOutlet var uCountryCode:UIPickerView!
+    
+    //@IBOutlet var uCountryCode:UIPickerView!
     
     @IBOutlet var btnCountry:UIButton!
     @IBOutlet var lblCountryCode:UILabel!
+    @IBOutlet var uPhone:UITextField!
+    @IBOutlet var btnDone:UIBarButtonItem!
     
     var pickerData = ["United States","India","United Kingdom"]
     private var sCountryCode:String = "01"
@@ -62,6 +64,12 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
             btnCountry.setTitle(AppDelegate.getAppDelegate().sCountryName, forState: UIControlState.Normal)
             lblCountryCode.text = "+ " + AppDelegate.getAppDelegate().nCountryCode.stringValue
         }
+    }
+    
+    @IBAction func onDone(sender:AnyObject){
+        print("VCRegistration:onDone: ")
+        let num1:String = self.uPhone.text!
+        print(self.lblCountryCode.text!+num1)
     }
     
     internal func showAlertMessage(message:String, _ title:String="Note"){
