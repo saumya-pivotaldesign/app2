@@ -109,8 +109,6 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
                  
                  if let json1 = response.result.value {
                     print("VCRegistration:callServerForRegistration:json1: \(json1)")
-                    
-                    
                  }else{
                     print("VCRegistration:callServerForRegistration:json1: FAIL :")
                     print(response)
@@ -118,7 +116,7 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
                 }
                 
                 //TODO: Once the query is cleared, uncomment these
-                /*
+                
                 let jsonOBJ = JSON((response.result.value)!)
                 
                 print("===========================================")
@@ -142,7 +140,7 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
                     self.showAlertMessage(msg,"Error Information")
                 }else{
                     self.showAlertMessage("request is unable to process at this time","Error")
-                }*/
+                }
  
         }
     }
