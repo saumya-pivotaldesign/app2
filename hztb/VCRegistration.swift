@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Contacts
 import SwiftyJSON
+import Alamofire
 
 class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDelegate {
     
@@ -69,7 +70,68 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
     @IBAction func onDone(sender:AnyObject){
         print("VCRegistration:onDone: ")
         let num1:String = self.uPhone.text!
-        print(self.lblCountryCode.text!+num1)
+        //print(self.lblCountryCode.text!+num1)
+        let sFinal:String = AppDelegate.getAppDelegate().nCountryCode.stringValue+num1
+        print(sFinal)
+        callServerForRegistration()
+    }
+    
+    private func callServerForRegistration(){
+        print("VCRegistration:callServerForRegistration: ")
+        
+        let num1:String = self.uPhone.text!
+        let sPhone:String = AppDelegate.getAppDelegate().nCountryCode.stringValue+num1
+        
+        // http://ec2-52-90-83-150.compute-1.amazonaws.com:8080/hztb-servicemanager/app/initialcheck
+        //let url = "http://hztb-dev.us-east-1.elasticbeanstalk.com/user/register" // old
+        
+        let url = "http://ec2-52-90-83-150.compute-1.amazonaws.com:8080/hztb-servicemanager/app/register"
+        let headers = [
+            "Content-Type":"application/json",
+            "Accept":"application/json",
+            "Accept-Language":"en-US",
+            "REQUEST_ID":"1"
+        ]
+        let parameters = [
+            "mobileNumber":sPhone
+        ]
+        Alamofire.request(.POST, url,headers:headers, parameters:parameters , encoding: .JSON)
+            .responseJSON { (response) in
+                
+                
+                 print("VCRegistration:callServerForRegistration:post : request=",response.request)
+                 print("VCRegistration:callServerForRegistration:post : response=",response.response)
+                 print("VCRegistration:callServerForRegistration:post : data=",response.data)
+                 print("VCRegistration:callServerForRegistration:post : result=",response.result)
+                 
+                 if let json1 = response.result.value {
+                    print("VCRegistration:callServerForRegistration:json1: \(json1)")
+                 }
+                
+                let jsonOBJ = JSON((response.result.value)!)
+                
+                print("===========================================")
+                print("PIVDUtil:initialCheck: jsonOBJ=",jsonOBJ)
+                print("PIVDUtil:initialCheck: jsonOBJ.status=",jsonOBJ["status"])
+                print("PIVDUtil:initialCheck: jsonOBJ.isError=",jsonOBJ["isError"])
+                print("PIVDUtil:initialCheck: jsonOBJ.needUpdate=",jsonOBJ["needUpdate"])
+                print("PIVDUtil:initialCheck: jsonOBJ.header.status=",jsonOBJ["header"]["status"])
+                print("PIVDUtil:initialCheck: jsonOBJ.header.requestId=",jsonOBJ["header"]["requestId"])
+                print("===========================================")
+                
+                // HTTP Status Code
+                let sCode = (response.response)?.statusCode
+                print("sCode",sCode)
+                
+                if(sCode==200){
+                    self.showAlertMessage("Done","Success")
+                }else if(sCode==400){
+                    self.showAlertMessage("bad request","Error")
+                }else{
+                    self.showAlertMessage("request is unable to process at this time","Info")
+                }
+ 
+        }
     }
     
     internal func showAlertMessage(message:String, _ title:String="Note"){
