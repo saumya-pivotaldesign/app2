@@ -85,7 +85,9 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
         // http://ec2-52-90-83-150.compute-1.amazonaws.com:8080/hztb-servicemanager/app/initialcheck
         //let url = "http://hztb-dev.us-east-1.elasticbeanstalk.com/user/register" // old
         
-        let url = "http://ec2-52-90-83-150.compute-1.amazonaws.com:8080/hztb-servicemanager/user/register"
+        //let url = "http://ec2-52-90-83-150.compute-1.amazonaws.com:8080/hztb-servicemanager/user/register"
+        
+        let url = "http://ec2-52-90-83-150.compute-1.amazonaws.com:8080/hztb-servicemanager/user/requestcode"
         let headers = [
             "Content-Type":"application/json",
             "Accept":"application/json",
@@ -94,7 +96,7 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
         ]
         let parameters = [
             "mobileNumber":sPhone,
-            "uniqueId":"1111111111111111"
+            "id":"1111111111111111"
         ]
         Alamofire.request(.POST, url,headers:headers, parameters:parameters , encoding: .JSON)
             .responseJSON { (response) in
