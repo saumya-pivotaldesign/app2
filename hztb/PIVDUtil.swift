@@ -47,7 +47,7 @@ class PIVDUtil {
     internal func initialCheck(refObj:VCAppEntry,vCode:String,vName:String){
         print("PIVDUtil:initialCheck:")
         
-        let url = "http://ec2-52-90-83-150.compute-1.amazonaws.com:8080/hztb-servicemanager/ap/initialcheck"
+        let url = "http://ec2-52-90-83-150.compute-1.amazonaws.com:8080/hztb-servicemanager/app/initialcheck"
         let headers = [
             "Content-Type":"application/json",
             "Accept":"application/json",
@@ -107,57 +107,6 @@ class PIVDUtil {
                 }else{
                     refObj.showAlertMessage("request is unable to process at this time","Info")
                 }
-                
-                
-                /*
-                let successStatus = jsonOBJ["header"]["status"].numberValue
-                let resultStatus = jsonOBJ["status"].numberValue
-                
-                print("successStatus",successStatus)
-                print("resultStatus",resultStatus)
-                
-                if(resultStatus == 0){
-                    
-                    if(successStatus==200){
-                        print("Status:200: ==================== ")
-                        
-                        if(jsonOBJ["isError"]==false){
-                            print("PIVDUtil:initialCheck: isError : NO")
-                            if(jsonOBJ["needUpdate"]==false){
-                                print("PIVDUtil:initialCheck: NEED UPDATE : NO")
-                                //refObj.onDoneWithInitialCheck()
-                                
-                                // everything is alright, move on
-                                let notification = NSNotification(name: AppStaticNames.INIT_CHECK_DONE, object:self, userInfo: nil)
-                                NSNotificationCenter.defaultCenter().postNotification(notification)
-                                
-                            }else{
-                                print("PIVDUtil:initialCheck: NEED UPDATE : YES")
-                                refObj.onDoneWithInitialCheck("Need Update")
-                            }
-                        }else{
-                            print("PIVDUtil:initialCheck: isError : YES")
-                            refObj.onDoneWithInitialCheck("error")
-                        }
-                        
-                    }else if(successStatus==400){
-                        print("Status:400: BAD ==================== ")
-                        refObj.onDoneWithInitialCheck("bad request")
-                    }else if(successStatus==500){
-                        print("Status:500: ERROR ==================== ")
-                        refObj.onDoneWithInitialCheck("request is unable to process at this time")
-                    }
-                    
-                }else{
-                    // FATAL ERROR
-                    //AppDelegate.getAppDelegate().showMessage("FATAL ERROR")
-                    print("Status: ERROR : FATAL ==================== ", resultStatus)
-                    refObj.onDoneWithInitialCheck("request is unable to process at this time")
-                }*/
-                
-                
-                
-                
                 
         }
     }// END initialCheck
