@@ -11,6 +11,7 @@
 		AE1C75C91D6F1758000EED8D /* PIVDUtilContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1C75C81D6F1758000EED8D /* PIVDUtilContact.swift */; };
 		AE1C75CB1D6F2CDF000EED8D /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = AE1C75CA1D6F2CDF000EED8D /* countries.json */; };
 		AE1C75CD1D6F3B02000EED8D /* VCCountrySelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1C75CC1D6F3B02000EED8D /* VCCountrySelection.swift */; };
+		AE36A4791D75A13F00F4402C /* VCOTPConf.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE36A4781D75A13F00F4402C /* VCOTPConf.swift */; };
 		AE3DF8911D6C6DAD00D62B83 /* countries.csv in Resources */ = {isa = PBXBuildFile; fileRef = AE3DF8901D6C6DAD00D62B83 /* countries.csv */; };
 		AE62B0731D6AD40500ACCC42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE62B0721D6AD40500ACCC42 /* AppDelegate.swift */; };
 		AE62B0751D6AD40500ACCC42 /* ViewControllerOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE62B0741D6AD40500ACCC42 /* ViewControllerOne.swift */; };
@@ -29,6 +30,7 @@
 		AE1C75C81D6F1758000EED8D /* PIVDUtilContact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PIVDUtilContact.swift; sourceTree = "<group>"; };
 		AE1C75CA1D6F2CDF000EED8D /* countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countries.json; sourceTree = "<group>"; };
 		AE1C75CC1D6F3B02000EED8D /* VCCountrySelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCCountrySelection.swift; sourceTree = "<group>"; };
+		AE36A4781D75A13F00F4402C /* VCOTPConf.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCOTPConf.swift; sourceTree = "<group>"; };
 		AE3DF8901D6C6DAD00D62B83 /* countries.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = countries.csv; sourceTree = "<group>"; };
 		AE62B06F1D6AD40500ACCC42 /* hztb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hztb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE62B0721D6AD40500ACCC42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				AED9CE2E1D6DA1D700BAE210 /* VCAppEntry.swift */,
 				AED9CE341D6DDBC900BAE210 /* VCRegistration.swift */,
 				AE1C75CC1D6F3B02000EED8D /* VCCountrySelection.swift */,
+				AE36A4781D75A13F00F4402C /* VCOTPConf.swift */,
 				AED9CE301D6DB58700BAE210 /* PIVDUtil.swift */,
 				AE1C75C81D6F1758000EED8D /* PIVDUtilContact.swift */,
 				AE62B07E1D6AD40500ACCC42 /* Info.plist */,
@@ -240,6 +243,7 @@
 				AED9CE331D6DD6B600BAE210 /* AppStaticNames.swift in Sources */,
 				AE62B0751D6AD40500ACCC42 /* ViewControllerOne.swift in Sources */,
 				AE1C75C91D6F1758000EED8D /* PIVDUtilContact.swift in Sources */,
+				AE36A4791D75A13F00F4402C /* VCOTPConf.swift in Sources */,
 				AED9CE2F1D6DA1D700BAE210 /* VCAppEntry.swift in Sources */,
 				AED9CE311D6DB58700BAE210 /* PIVDUtil.swift in Sources */,
 				AE62B0731D6AD40500ACCC42 /* AppDelegate.swift in Sources */,

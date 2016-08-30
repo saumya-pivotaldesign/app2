@@ -142,7 +142,19 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
                     print("VCRegistration:callServerForRegistration:post: jsonOBJ.voiceWaitTime =",jsonOBJ["voiceWaitTime"])
                     print("===========================================")
                     if(jsonOBJ["isError"] == false){
-                        self.showAlertMessage("Done","Success")
+                        //self.showAlertMessage("Done","Success")
+                        
+                        /*
+                        let next = self.storyboard?.instantiateViewControllerWithIdentifier("sib_OTPConfVC") as! VCOTPConf
+                        self.presentViewController(next, animated: true, completion: nil)
+                        self.showViewController(next, sender: self)
+                        */
+                        
+                        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("sib_OTPConfVC") as! VCOTPConf
+                        //let navigationController = UINavigationController(rootViewController: vc)
+                        //self.presentViewController(navigationController, animated: true, completion: nil)
+                        self.navigationController!.pushViewController(vc, animated: true)
+                        
                     }else{
                         self.showAlertMessage("Error","Success")
                     }
