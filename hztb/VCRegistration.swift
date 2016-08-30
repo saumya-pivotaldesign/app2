@@ -150,6 +150,8 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
                         self.showViewController(next, sender: self)
                         */
                         
+                        AppDelegate.getAppDelegate().sRegisteredMobileNum = num1
+                        
                         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("sib_OTPConfVC") as! VCOTPConf
                         //let navigationController = UINavigationController(rootViewController: vc)
                         //self.presentViewController(navigationController, animated: true, completion: nil)

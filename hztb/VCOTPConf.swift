@@ -39,10 +39,12 @@ class VCOTPConf: UIViewController {
 extension VCOTPConf {
     private func validationOTP(){
         
-        print("VCOTPConf : validationOTP :")
+        print("VCOTPConf : validationOTP : ")
+        
+        let sMobNum = AppDelegate.getAppDelegate().sRegisteredMobileNum
         
         let otpString:String = self.tOPT.text!
-        print("VCOTPConf : validationOTP : ",otpString)
+        print("VCOTPConf : validationOTP : otpString :",otpString," : sMobNum : ",sMobNum)
         
         
         let url = "http://ec2-52-90-83-150.compute-1.amazonaws.com:8080/hztb-servicemanager/user/validateOTP"
