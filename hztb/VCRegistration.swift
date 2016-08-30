@@ -99,6 +99,7 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
         Alamofire.request(.POST, url,headers:headers, parameters:parameters , encoding: .JSON)
             .responseJSON { (response) in
                 
+                print("response",response)
                 
                  print("VCRegistration:callServerForRegistration:post : request=",response.request)
                  print("VCRegistration:callServerForRegistration:post : response=",response.response)
