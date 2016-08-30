@@ -10,6 +10,10 @@ import Foundation
 import UIKit
 
 class VCOTPConf: UIViewController {
+    
+    @IBOutlet var tOPT:UITextField!
+    @IBOutlet var bConfirm:UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("VCOTPConf:viewDidLoad:")
@@ -22,4 +26,9 @@ class VCOTPConf: UIViewController {
         super.viewDidAppear(animated)
         print("VCOTPConf:viewDidAppear:")
     }
+    
+    @IBAction func onConfirmOTP(sender:AnyObject){
+        print("VCOTPConf:onConfirmOTP:")
+    }
+    
 }

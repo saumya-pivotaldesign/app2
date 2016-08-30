@@ -150,8 +150,42 @@
                     <view key="view" contentMode="scaleToFill" id="wbb-K0-gT8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="OTP Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sUj-Jo-GwV">
+                                <rect key="frame" x="20" y="72" width="560" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="vG6-UI-Fp2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JP8-P5-S7g">
+                                <rect key="frame" x="250" y="110" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.24313725489999999" green="0.66274509800000003" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="4g9-jB-E4n"/>
+                                    <constraint firstAttribute="height" constant="30" id="Keu-Uf-dGE"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Confirm"/>
+                                <connections>
+                                    <action selector="onConfirmOTP:" destination="nyh-AE-zUx" eventType="touchUpInside" id="Cbu-kK-9pq"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JP8-P5-S7g" firstAttribute="centerX" secondItem="wbb-K0-gT8" secondAttribute="centerX" id="8H2-dP-vRb"/>
+                            <constraint firstItem="sUj-Jo-GwV" firstAttribute="leading" secondItem="wbb-K0-gT8" secondAttribute="leadingMargin" id="Jvp-0r-rCH"/>
+                            <constraint firstItem="sUj-Jo-GwV" firstAttribute="trailing" secondItem="wbb-K0-gT8" secondAttribute="trailingMargin" id="ZDW-de-laf"/>
+                            <constraint firstItem="sUj-Jo-GwV" firstAttribute="top" secondItem="2Rr-i0-TpJ" secondAttribute="bottom" constant="8" id="gRd-2p-Ti9"/>
+                            <constraint firstItem="JP8-P5-S7g" firstAttribute="top" secondItem="sUj-Jo-GwV" secondAttribute="bottom" constant="8" id="iqq-hB-4LE"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bConfirm" destination="JP8-P5-S7g" id="nZT-iL-Rpi"/>
+                        <outlet property="tOPT" destination="sUj-Jo-GwV" id="z6h-T8-rGo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vaj-jK-V7h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
