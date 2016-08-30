@@ -134,13 +134,18 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
                 print("sCode",sCode)
                 
                 if(sCode==200){
-                    self.showAlertMessage("Done","Success")
+                    //self.showAlertMessage("Done","Success")
                     print("===========================================")
                     print("VCRegistration:callServerForRegistration:post: jsonOBJ.isError =",jsonOBJ["isError"])
                     print("VCRegistration:callServerForRegistration:post: jsonOBJ.smsWaitTime =",jsonOBJ["smsWaitTime"])
                     print("VCRegistration:callServerForRegistration:post: jsonOBJ.otpWaitTime =",jsonOBJ["otpWaitTime"])
                     print("VCRegistration:callServerForRegistration:post: jsonOBJ.voiceWaitTime =",jsonOBJ["voiceWaitTime"])
                     print("===========================================")
+                    if(jsonOBJ["isError"] == false){
+                        self.showAlertMessage("Done","Success")
+                    }else{
+                        self.showAlertMessage("Error","Success")
+                    }
                 }else if(sCode==400){
                     let msg:String = jsonOBJ["header"]["errors"][0]["message"].string!
                     //self.showAlertMessage("bad request","Error")
