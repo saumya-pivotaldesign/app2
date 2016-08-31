@@ -119,13 +119,15 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
                 
                 print("response",response)
                 
-                 print("VCRegistration:callServerForRegistration:post : request=",response.request)
-                 print("VCRegistration:callServerForRegistration:post : response=",response.response)
-                 print("VCRegistration:callServerForRegistration:post : data=",response.data)
-                 print("VCRegistration:callServerForRegistration:post : result=",response.result)
+                 print("VCRegistration : callServerForRegistration:post : request=",response.request)
+                 print("VCRegistration : callServerForRegistration:post : response=",response.response)
+                 print("VCRegistration : callServerForRegistration:post : data=",response.data)
+                 print("VCRegistration : callServerForRegistration:post : result=",response.result)
                  
                  if let json1 = response.result.value {
                     print("VCRegistration:callServerForRegistration:json1: \(json1)")
+                    // TODO: the whole of the below if-else should come here
+                    
                  }else{
                     print("VCRegistration:callServerForRegistration:json1: FAIL :")
                     print(response)
@@ -136,26 +138,17 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
                 
                 let jsonOBJ = JSON((response.result.value)!)
                 
-                print("===========================================")
-                print("VCRegistration:callServerForRegistration:post: jsonOBJ=",jsonOBJ)
-                print("VCRegistration:callServerForRegistration:post: jsonOBJ.status=",jsonOBJ["status"])
-                print("VCRegistration:callServerForRegistration:post: jsonOBJ.isError=",jsonOBJ["isError"])
-                print("VCRegistration:callServerForRegistration:post: jsonOBJ.needUpdate=",jsonOBJ["needUpdate"])
-                print("VCRegistration:callServerForRegistration:post: jsonOBJ.header.status=",jsonOBJ["header"]["status"])
-                print("VCRegistration:callServerForRegistration:post: jsonOBJ.header.requestId=",jsonOBJ["header"]["requestId"])
-                print("===========================================")
-                
                 // HTTP Status Code
                 let sCode = (response.response)?.statusCode
-                print("sCode",sCode)
                 
                 if(sCode==200){
                     //self.showAlertMessage("Done","Success")
                     print("===========================================")
-                    print("VCRegistration:callServerForRegistration:post: jsonOBJ.isError =",jsonOBJ["isError"])
-                    print("VCRegistration:callServerForRegistration:post: jsonOBJ.smsWaitTime =",jsonOBJ["smsWaitTime"])
-                    print("VCRegistration:callServerForRegistration:post: jsonOBJ.otpWaitTime =",jsonOBJ["otpWaitTime"])
-                    print("VCRegistration:callServerForRegistration:post: jsonOBJ.voiceWaitTime =",jsonOBJ["voiceWaitTime"])
+                    print("VCRegistration : callServerForRegistration : post : jsonOBJ=",jsonOBJ)
+                    print("VCRegistration : callServerForRegistration : post : jsonOBJ.isError =",jsonOBJ["isError"])
+                    print("VCRegistration : callServerForRegistration : post : jsonOBJ.smsWaitTime =",jsonOBJ["smsWaitTime"])
+                    print("VCRegistration : callServerForRegistration : post : jsonOBJ.otpWaitTime =",jsonOBJ["otpWaitTime"])
+                    print("VCRegistration : callServerForRegistration : post : jsonOBJ.voiceWaitTime =",jsonOBJ["voiceWaitTime"])
                     print("===========================================")
                     if(jsonOBJ["isError"] == false){
                         //self.showAlertMessage("Done","Success")
@@ -166,8 +159,13 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
                         self.showViewController(next, sender: self)
                         */
                         
+                        // saving values to store
                         AppDelegate.getAppDelegate().sRegisteredMobileNum = num1
-                        
+                        //
+                        AppDelegate.getAppDelegate().nSmsWaitTime = jsonOBJ["smsWaitTime"].numberValue
+                        AppDelegate.getAppDelegate().nOtpWaitTime = jsonOBJ["otpWaitTime"].numberValue
+                        AppDelegate.getAppDelegate().nVoiceWaitTime = jsonOBJ["voiceWaitTime"].numberValue
+                        //
                         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("sib_OTPConfVC") as! VCOTPConf
                         //let navigationController = UINavigationController(rootViewController: vc)
                         //self.presentViewController(navigationController, animated: true, completion: nil)

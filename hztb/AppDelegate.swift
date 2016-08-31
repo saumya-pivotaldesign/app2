@@ -23,7 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var sCountryName:String=""
     var nCountryCode:NSNumber=0
     var sRegisteredMobileNum:String=""
-    
+    //
+    var nSmsWaitTime:NSNumber=0
+    var nOtpWaitTime:NSNumber=0
+    var nVoiceWaitTime:NSNumber=0
     //
     var sUniqueRandomNum:String=""
 
