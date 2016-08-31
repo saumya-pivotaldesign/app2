@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 import Contacts
+
+import AdSupport
+
 import SwiftyJSON
 import Alamofire
 
@@ -37,7 +40,7 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("VCRegistration:viewDidLoad:")
+        print("VCRegistration : viewDidLoad :")
         
         //uCountryCode.dataSource = self
         //uCountryCode.delegate = self
@@ -50,6 +53,16 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
                                                           name: CNContactStoreDidChangeNotification, object: nil)
         //
         //PIVDUtilContact.getContacts()
+        
+        // Unique Identifier
+        // ref : https://possiblemobile.com/2013/04/unique-identifiers/
+        // IDFV
+        let idIDFV = UIDevice.currentDevice().identifierForVendor?.UUIDString
+        print("VCRegistration : viewDidLoad : idIDFV :",idIDFV)
+        // Advertising ID
+        //let idAdID = ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString
+        //print("VCRegistration : viewDidLoad : idAdID :",idAdID)
+        AppDelegate.getAppDelegate().sUniqueRandomNum = idIDFV!
         
     }
     override func viewDidAppear(animated: Bool) {
@@ -77,10 +90,13 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
     }
     
     private func callServerForRegistration(){
-        print("VCRegistration:callServerForRegistration: ")
+        print("VCRegistration : callServerForRegistration : ")
         
         let num1:String = self.uPhone.text!
         let sPhone:String = AppDelegate.getAppDelegate().nCountryCode.stringValue+num1
+        let sUnum:String = AppDelegate.getAppDelegate().sUniqueRandomNum
+        
+        print("VCRegistration : callServerForRegistration : sPhone",sPhone," : uniqueNum : ",sUnum)
         
         // http://ec2-52-90-83-150.compute-1.amazonaws.com:8080/hztb-servicemanager/app/initialcheck
         //let url = "http://hztb-dev.us-east-1.elasticbeanstalk.com/user/register" // old
@@ -96,7 +112,7 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
         ]
         let parameters = [
             "mobileNumber":sPhone,
-            "id":"1111111111111111"
+            "id":sUnum
         ]
         Alamofire.request(.POST, url,headers:headers, parameters:parameters , encoding: .JSON)
             .responseJSON { (response) in

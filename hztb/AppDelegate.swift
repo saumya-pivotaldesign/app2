@@ -23,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var sCountryName:String=""
     var nCountryCode:NSNumber=0
     var sRegisteredMobileNum:String=""
+    
+    //
+    var sUniqueRandomNum:String=""
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {

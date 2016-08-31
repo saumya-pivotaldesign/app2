@@ -87,17 +87,35 @@ extension VCOTPConf {
                 print("========== sCode",sCode)
                 
                 if let json1 = response.result.value {
-                    print("VCRegistration:callServerForRegistration:json1: \(json1)")
+                    print("VCOTPConf: callServerForRegistration :json1: \(json1)")
                     
                     let jsonOBJ = JSON((response.result.value)!)
                     
                     if(sCode==200){
                         //self.showAlertMessage("Done","Success")
                         
-                        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("sib_HomeViewController") as! VCHome
-                        let navigationController = UINavigationController(rootViewController: vc)
-                        self.presentViewController(navigationController, animated: true, completion: nil)
-                        
+                        //self.showAlertMessage("Done","Success")
+                        print("===========================================")
+                        print("VCRegistration:callServerForRegistration:post: jsonOBJ =",jsonOBJ)
+                        print("VCRegistration:callServerForRegistration:post: jsonOBJ.isError =",jsonOBJ["isError"])
+                        print("VCRegistration:callServerForRegistration:post: jsonOBJ.smsWaitTime =",jsonOBJ["smsWaitTime"])
+                        print("VCRegistration:callServerForRegistration:post: jsonOBJ.otpWaitTime =",jsonOBJ["otpWaitTime"])
+                        print("VCRegistration:callServerForRegistration:post: jsonOBJ.voiceWaitTime =",jsonOBJ["voiceWaitTime"])
+                        print("===========================================")
+                        if(jsonOBJ["isError"] == false){
+                            self.showAlertMessage("Done","Success")
+                            
+                            //AppDelegate.getAppDelegate().sRegisteredMobileNum = num1
+                            
+                            let vc = self.storyboard?.instantiateViewControllerWithIdentifier("sib_HomeViewController") as! VCHome
+                            let navigationController = UINavigationController(rootViewController: vc)
+                            self.presentViewController(navigationController, animated: true, completion: nil)
+                            
+                        }else{
+                            //self.showAlertMessage("Error","Success")
+                            let s = jsonOBJ["header"]["errors"][0]["message"].stringValue
+                            self.showAlertMessage(s,"Info")
+                        }
                         
                     }else if(sCode==400){
                         let msg:String = jsonOBJ["header"]["errors"][0]["message"].string!
@@ -108,7 +126,7 @@ extension VCOTPConf {
                     }
                 
                 }else{
-                    print("VCRegistration:callServerForRegistration:json1: FAIL :")
+                    print("VCOTPConf: callServerForRegistration :json1: FAIL :")
                     print(response)
                     self.showAlertMessage("TODO: Message","Fail")
                 }
