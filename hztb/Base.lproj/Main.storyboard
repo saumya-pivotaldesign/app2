@@ -54,7 +54,7 @@
                                     <constraint firstAttribute="width" constant="100" id="XHv-JH-3Jd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="111111111" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yNp-o7-FOr">
@@ -191,6 +191,25 @@
             </objects>
             <point key="canvasLocation" x="1322" y="-421"/>
         </scene>
+        <!--HZTB-->
+        <scene sceneID="onr-Rg-Agr">
+            <objects>
+                <viewController storyboardIdentifier="sib_HomeViewController" id="V0a-1p-oUS" customClass="VCHome" customModule="hztb" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RfD-NQ-BAY"/>
+                        <viewControllerLayoutGuide type="bottom" id="Iil-Kf-ZmX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2sq-np-HIQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="HZTB" id="7KT-LJ-Vmq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="huC-UY-oPT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1322" y="431"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="2VW-rL-GVg">
             <objects>
@@ -204,6 +223,7 @@
                     <connections>
                         <segue destination="rxk-hW-F2R" kind="relationship" relationship="rootViewController" id="M2j-2J-Lzm"/>
                         <segue destination="nyh-AE-zUx" kind="show" id="RNk-c1-2Qz"/>
+                        <segue destination="V0a-1p-oUS" kind="show" id="xtc-dq-Fdc"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="63n-H8-sfe" userLabel="First Responder" sceneMemberID="firstResponder"/>

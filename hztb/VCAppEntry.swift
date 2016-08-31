@@ -75,6 +75,7 @@ extension VCAppEntry {
         //self.showViewController(next, sender: self)
         */
         
+        // Show without a Back button
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("sib_RegistrationViewController") as! VCRegistration
         let navigationController = UINavigationController(rootViewController: vc)
         self.presentViewController(navigationController, animated: true, completion: nil)

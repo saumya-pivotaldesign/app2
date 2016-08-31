@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class VCOTPConf: UIViewController {
     
@@ -33,6 +34,16 @@ class VCOTPConf: UIViewController {
         validationOTP()
     }
     
+    
+    internal func showAlertMessage(message:String, _ title:String="Note"){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let dismissAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (action) -> Void in
+            //
+        }
+        alertController.addAction(dismissAction)
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
 }
 
 
@@ -41,7 +52,8 @@ extension VCOTPConf {
         
         print("VCOTPConf : validationOTP : ")
         
-        let sMobNum = AppDelegate.getAppDelegate().sRegisteredMobileNum
+        let sMobNum = AppDelegate.getAppDelegate().nCountryCode.stringValue+AppDelegate.getAppDelegate().sRegisteredMobileNum
+        //AppDelegate.getAppDelegate().nCountryCode
         
         let otpString:String = self.tOPT.text!
         print("VCOTPConf : validationOTP : otpString :",otpString," : sMobNum : ",sMobNum)
@@ -55,18 +67,55 @@ extension VCOTPConf {
             "REQUEST_ID":"1212"
         ]
         let parameters = [
-            "mobileNumber":"2222211111",
+            "mobileNumber":sMobNum,
             "id":"1111111111111111",
             "otpCode": otpString
         ]
         Alamofire.request(.POST, url,headers:headers, parameters:parameters , encoding: .JSON)
             .responseJSON { (response) in
                 
+                print("================================================================")
                 print("response",response)
                 print("VCOTPConf : validationOTP : request=",response.request)
                 print("VCOTPConf : validationOTP : response=",response.response)
                 print("VCOTPConf : validationOTP : data=",response.data)
                 print("VCOTPConf : validationOTP : result=",response.result)
+                print(" / =============================================================")
+                
+                // HTTP Status Code
+                let sCode = (response.response)?.statusCode
+                print("========== sCode",sCode)
+                
+                if let json1 = response.result.value {
+                    print("VCRegistration:callServerForRegistration:json1: \(json1)")
+                    
+                    let jsonOBJ = JSON((response.result.value)!)
+                    
+                    if(sCode==200){
+                        //self.showAlertMessage("Done","Success")
+                        
+                        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("sib_HomeViewController") as! VCHome
+                        let navigationController = UINavigationController(rootViewController: vc)
+                        self.presentViewController(navigationController, animated: true, completion: nil)
+                        
+                        
+                    }else if(sCode==400){
+                        let msg:String = jsonOBJ["header"]["errors"][0]["message"].string!
+                        //self.showAlertMessage("bad request","Error")
+                        self.showAlertMessage(msg,"Error Information")
+                    }else{
+                        self.showAlertMessage("request is unable to process at this time","Error")
+                    }
+                
+                }else{
+                    print("VCRegistration:callServerForRegistration:json1: FAIL :")
+                    print(response)
+                    self.showAlertMessage("TODO: Message","Fail")
+                }
+                
+                
+                
+                
         }
     }
 }

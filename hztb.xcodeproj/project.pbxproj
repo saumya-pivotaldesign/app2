@@ -18,6 +18,7 @@
 		AE62B0781D6AD40500ACCC42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE62B0761D6AD40500ACCC42 /* Main.storyboard */; };
 		AE62B07A1D6AD40500ACCC42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE62B0791D6AD40500ACCC42 /* Assets.xcassets */; };
 		AE62B07D1D6AD40500ACCC42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE62B07B1D6AD40500ACCC42 /* LaunchScreen.storyboard */; };
+		AE69FB721D76BB760079F0EF /* VCHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69FB711D76BB760079F0EF /* VCHome.swift */; };
 		AED9CE2F1D6DA1D700BAE210 /* VCAppEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED9CE2E1D6DA1D700BAE210 /* VCAppEntry.swift */; };
 		AED9CE311D6DB58700BAE210 /* PIVDUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED9CE301D6DB58700BAE210 /* PIVDUtil.swift */; };
 		AED9CE331D6DD6B600BAE210 /* AppStaticNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED9CE321D6DD6B600BAE210 /* AppStaticNames.swift */; };
@@ -39,6 +40,7 @@
 		AE62B0791D6AD40500ACCC42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE62B07C1D6AD40500ACCC42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE62B07E1D6AD40500ACCC42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE69FB711D76BB760079F0EF /* VCHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCHome.swift; sourceTree = "<group>"; };
 		AED9CE2E1D6DA1D700BAE210 /* VCAppEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCAppEntry.swift; sourceTree = "<group>"; };
 		AED9CE301D6DB58700BAE210 /* PIVDUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PIVDUtil.swift; sourceTree = "<group>"; };
 		AED9CE321D6DD6B600BAE210 /* AppStaticNames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStaticNames.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				AED9CE341D6DDBC900BAE210 /* VCRegistration.swift */,
 				AE1C75CC1D6F3B02000EED8D /* VCCountrySelection.swift */,
 				AE36A4781D75A13F00F4402C /* VCOTPConf.swift */,
+				AE69FB711D76BB760079F0EF /* VCHome.swift */,
 				AED9CE301D6DB58700BAE210 /* PIVDUtil.swift */,
 				AE1C75C81D6F1758000EED8D /* PIVDUtilContact.swift */,
 				AE62B07E1D6AD40500ACCC42 /* Info.plist */,
@@ -243,6 +246,7 @@
 				AED9CE331D6DD6B600BAE210 /* AppStaticNames.swift in Sources */,
 				AE62B0751D6AD40500ACCC42 /* ViewControllerOne.swift in Sources */,
 				AE1C75C91D6F1758000EED8D /* PIVDUtilContact.swift in Sources */,
+				AE69FB721D76BB760079F0EF /* VCHome.swift in Sources */,
 				AE36A4791D75A13F00F4402C /* VCOTPConf.swift in Sources */,
 				AED9CE2F1D6DA1D700BAE210 /* VCAppEntry.swift in Sources */,
 				AED9CE311D6DB58700BAE210 /* PIVDUtil.swift in Sources */,
