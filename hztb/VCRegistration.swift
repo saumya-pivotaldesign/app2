@@ -88,6 +88,12 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
             self.locationManager.startUpdatingLocation()
         }
         //MARK:
+        // loading all the country value from JSON file
+        if let path : String = NSBundle.mainBundle().pathForResource("countries", ofType: "json") {
+            if let data = NSData(contentsOfFile: path) {
+                self.jCountries = JSON(data: data)
+            }
+        }
         
     }
     override func viewDidAppear(animated: Bool) {
@@ -106,12 +112,17 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
     }
     
     @IBAction func onDone(sender:AnyObject){
-        print("VCRegistration:onDone: ")
+        print("VCRegistration : onDone : ")
         let num1:String = self.uPhone.text!
         //print(self.lblCountryCode.text!+num1)
         let sFinal:String = AppDelegate.getAppDelegate().nCountryCode.stringValue+num1
         print(sFinal)
         callServerForRegistration()
+    }
+    
+    @IBAction func onBtnCountry(sender:AnyObject){
+        print("VCRegistration : onBtnCountry : ")
+        self.locationManager.stopUpdatingLocation()
     }
     
     private func callServerForRegistration(){
@@ -312,54 +323,40 @@ extension VCRegistration {
                 placemark = placemarks![0] as CLPlacemark
                 
                 print(placemark.ISOcountryCode,":",placemark.country,":",placemark.postalCode)
+                self.btnCountry.setTitle(placemark.country, forState: UIControlState.Normal)
                 
-                /*
-                var addressString : String = ""
-                if placemark.ISOcountryCode == "TW" /*Address Format in Chinese*/ {
-                    if placemark.country != nil {
-                        addressString = placemark.country!
-                    }
-                    if placemark.subAdministrativeArea != nil {
-                        addressString = addressString + placemark.subAdministrativeArea! + ", "
-                    }
-                    if placemark.postalCode != nil {
-                        addressString = addressString + placemark.postalCode! + " "
-                    }
-                    if placemark.locality != nil {
-                        addressString = addressString + placemark.locality!
-                    }
-                    if placemark.thoroughfare != nil {
-                        addressString = addressString + placemark.thoroughfare!
-                    }
-                    if placemark.subThoroughfare != nil {
-                        addressString = addressString + placemark.subThoroughfare!
-                    }
-                } else {
-                    if placemark.subThoroughfare != nil {
-                        addressString = placemark.subThoroughfare! + " "
-                    }
-                    if placemark.thoroughfare != nil {
-                        addressString = addressString + placemark.thoroughfare! + ", "
-                    }
-                    if placemark.postalCode != nil {
-                        addressString = addressString + placemark.postalCode! + " "
-                    }
-                    if placemark.locality != nil {
-                        addressString = addressString + placemark.locality! + ", "
-                    }
-                    if placemark.administrativeArea != nil {
-                        addressString = addressString + placemark.administrativeArea! + " "
-                    }
-                    if placemark.country != nil {
-                        addressString = addressString + placemark.country!
+                //print("X   ===========================")
+                for country in self.jCountries {
+                    //print(country.1["code"],country.1["country"])
+                    let a:String = country.1["country"].stringValue
+                    var b:String = country.1["code"].stringValue
+                    
+                    //print(a,b)
+                    let c:String = placemark.country!
+                    //print(c , a)
+                    
+                    if(a.rangeOfString(c) != nil){
+                        //print("xxxxxxxxxxx ==========",a,b)
+                        let nb = NSInteger(b)
+                        if(nb<9){
+                            b = "0"+b
+                        }
+                        self.lblCountryCode.text = "+"+b
+                        
+                        //self.locationManager.startUpdatingLocation()
+                        self.locationManager.stopUpdatingLocation()
+                        
+                        AppDelegate.getAppDelegate().sCountryName = a
+                        AppDelegate.getAppDelegate().nCountryCode = nb!
                     }
                 }
-                
-                print(addressString)
-                */
+                //print("X / ===========================")
                 
             }
         })
+        /*
+        // Another way of
+        // Getting country code from the Network provider
         print("  =========")
         let networkInfo = CTTelephonyNetworkInfo()
         let carrier = networkInfo.subscriberCellularProvider
@@ -375,6 +372,7 @@ extension VCRegistration {
             print("No Carrier Found")
         }
         print("/ =========")
+        */
         //
     }
 

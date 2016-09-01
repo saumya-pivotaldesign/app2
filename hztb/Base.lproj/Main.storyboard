@@ -44,6 +44,7 @@
                                 </constraints>
                                 <state key="normal" title="Country"/>
                                 <connections>
+                                    <action selector="onBtnCountry:" destination="rxk-hW-F2R" eventType="touchUpInside" id="vA5-dM-ull"/>
                                     <segue destination="6ZA-LH-rX2" kind="show" id="PMj-Wx-ehE"/>
                                 </connections>
                             </button>
