@@ -108,7 +108,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yyy-mM-Glo">
-                                <rect key="frame" x="20" y="64" width="560" height="536"/>
+                                <rect key="frame" x="20" y="0.0" width="560" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="tbJ-6t-tcI">
@@ -124,11 +124,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yyy-mM-Glo" firstAttribute="top" secondItem="SHT-lm-AMF" secondAttribute="bottom" id="OYL-FP-4Zx"/>
+                            <constraint firstItem="yyy-mM-Glo" firstAttribute="top" secondItem="SHT-lm-AMF" secondAttribute="bottom" constant="-100" id="OYL-FP-4Zx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yyy-mM-Glo" secondAttribute="trailing" id="UNc-7R-0fU"/>
                             <constraint firstItem="fkR-nC-nXs" firstAttribute="top" secondItem="yyy-mM-Glo" secondAttribute="bottom" id="Vmq-sr-9SV"/>
                             <constraint firstItem="yyy-mM-Glo" firstAttribute="leading" secondItem="oK1-lT-x7Y" secondAttribute="leadingMargin" id="fDZ-6P-Efb"/>
+                            <constraint firstItem="yyy-mM-Glo" firstAttribute="top" secondItem="SHT-lm-AMF" secondAttribute="bottom" constant="-64" id="srY-Nd-QrE"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="OYL-FP-4Zx"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Country" id="Lw7-lz-jQS"/>
                     <connections>
