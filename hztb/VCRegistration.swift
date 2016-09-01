@@ -11,11 +11,13 @@ import UIKit
 import Contacts
 
 import AdSupport
+import CoreLocation
+import MapKit
 
 import SwiftyJSON
 import Alamofire
 
-class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDelegate {
+class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDelegate,CLLocationManagerDelegate {
     
     @IBOutlet var bg:UIImageView?
     
@@ -32,6 +34,8 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
     internal var sRegisteredNum:String = ""
     
     internal var jCountries:JSON!
+    
+    var locationManager: CLLocationManager!
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -54,7 +58,7 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
         //
         //PIVDUtilContact.getContacts()
         
-        // Unique Identifier
+        //MARK: - Unique Identifier
         // ref : https://possiblemobile.com/2013/04/unique-identifiers/
         // IDFV
         let idIDFV = UIDevice.currentDevice().identifierForVendor?.UUIDString
@@ -63,6 +67,25 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
         //let idAdID = ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString
         //print("VCRegistration : viewDidLoad : idAdID :",idAdID)
         AppDelegate.getAppDelegate().sUniqueRandomNum = idIDFV!
+        
+        //MARK: - Location
+        // ref : https://stackoverflow.com/questions/25296691/swift-get-users-current-location-coordinates
+        
+        self.locationManager = CLLocationManager()
+        
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if (CLLocationManager.locationServicesEnabled())
+        {
+            //self.locationManager = CLLocationManager()
+            self.locationManager.delegate = self
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            //self.locationManager.requestAlwaysAuthorization()
+            self.locationManager.startUpdatingLocation()
+        }
         
     }
     override func viewDidAppear(animated: Bool) {
@@ -257,4 +280,21 @@ extension VCRegistration {
         //print("CountryCode=",countryCode)
         self.sCountryCode = countryCode
     }
+    
+    //MARK: - Location Manager
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+    {
+        
+        let location = locations.last! as CLLocation
+        let latitude = location.coordinate.latitude
+        let longitude = location.coordinate.longitude
+        
+        //let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        //let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        
+        //self.map.setRegion(region, animated: true)
+        
+        print("VCRegistration : locationManager:manager:didUpdateLocations : latitude : ",latitude," : longitude : ",longitude)
+    }
+
 }
