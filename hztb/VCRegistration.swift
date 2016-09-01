@@ -13,6 +13,7 @@ import Contacts
 import AdSupport
 import CoreLocation
 import MapKit
+import CoreTelephony
 
 import SwiftyJSON
 import Alamofire
@@ -86,6 +87,7 @@ class VCRegistration: UIViewController, UIPickerViewDataSource,UIPickerViewDeleg
             //self.locationManager.requestAlwaysAuthorization()
             self.locationManager.startUpdatingLocation()
         }
+        //MARK:
         
     }
     override func viewDidAppear(animated: Bool) {
@@ -281,7 +283,7 @@ extension VCRegistration {
         self.sCountryCode = countryCode
     }
     
-    //MARK: - Location Manager
+    //MARK: - Location Manager Update Location
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
         
@@ -289,12 +291,91 @@ extension VCRegistration {
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
         
+        
         //let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         //let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         
         //self.map.setRegion(region, animated: true)
         
         print("VCRegistration : locationManager:manager:didUpdateLocations : latitude : ",latitude," : longitude : ",longitude)
+        
+        //ref : https://stackoverflow.com/questions/24345296/swift-clgeocoder-reversegeocodelocation-completionhandler-closure
+        
+        let geocoder = CLGeocoder()
+        
+        print("-> Finding user address...")
+        
+        geocoder.reverseGeocodeLocation(location, completionHandler: {(placemarks, error)->Void in
+            var placemark:CLPlacemark!
+            
+            if error == nil && placemarks!.count > 0 {
+                placemark = placemarks![0] as CLPlacemark
+                
+                print(placemark.ISOcountryCode,":",placemark.country,":",placemark.postalCode)
+                
+                /*
+                var addressString : String = ""
+                if placemark.ISOcountryCode == "TW" /*Address Format in Chinese*/ {
+                    if placemark.country != nil {
+                        addressString = placemark.country!
+                    }
+                    if placemark.subAdministrativeArea != nil {
+                        addressString = addressString + placemark.subAdministrativeArea! + ", "
+                    }
+                    if placemark.postalCode != nil {
+                        addressString = addressString + placemark.postalCode! + " "
+                    }
+                    if placemark.locality != nil {
+                        addressString = addressString + placemark.locality!
+                    }
+                    if placemark.thoroughfare != nil {
+                        addressString = addressString + placemark.thoroughfare!
+                    }
+                    if placemark.subThoroughfare != nil {
+                        addressString = addressString + placemark.subThoroughfare!
+                    }
+                } else {
+                    if placemark.subThoroughfare != nil {
+                        addressString = placemark.subThoroughfare! + " "
+                    }
+                    if placemark.thoroughfare != nil {
+                        addressString = addressString + placemark.thoroughfare! + ", "
+                    }
+                    if placemark.postalCode != nil {
+                        addressString = addressString + placemark.postalCode! + " "
+                    }
+                    if placemark.locality != nil {
+                        addressString = addressString + placemark.locality! + ", "
+                    }
+                    if placemark.administrativeArea != nil {
+                        addressString = addressString + placemark.administrativeArea! + " "
+                    }
+                    if placemark.country != nil {
+                        addressString = addressString + placemark.country!
+                    }
+                }
+                
+                print(addressString)
+                */
+                
+            }
+        })
+        print("  =========")
+        let networkInfo = CTTelephonyNetworkInfo()
+        let carrier = networkInfo.subscriberCellularProvider
+        
+        print(networkInfo)
+        print(networkInfo.subscriberCellularProvider)
+        
+        if (carrier != nil) {
+            print("country code is: " + carrier!.mobileCountryCode!);
+            //will return the actual country code
+            print("ISO country code is: " + carrier!.isoCountryCode!);
+        }else{
+            print("No Carrier Found")
+        }
+        print("/ =========")
+        //
     }
 
 }
